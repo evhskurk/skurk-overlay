@@ -14,11 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="berkdb +mta pam split-usr"
 
-# < openssl 3 for bug #881701
 DEPEND="
 	acct-user/smtpd
 	acct-user/smtpq
-	|| ( <dev-libs/openssl-3 <dev-libs/openssl-compat-3 )
+	dev-libs/openssl
 	elibc_musl? ( sys-libs/fts-standalone )
 	sys-libs/zlib
 	pam? ( sys-libs/pam )
