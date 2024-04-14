@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit meson
+LUA_COMPAT=( lua5-1 luajit )
+inherit meson lua-single
 
 DESCRIPTION="A simple serial device I/O tool"
 HOMEPAGE="https://github.com/tio/tio"
@@ -13,9 +14,11 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-libs/inih-55"
+DEPEND=">=dev-libs/inih-55 ${LUA_DEPS}"
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-util/meson-0.53.2"
+BDEPEND=">=dev-build/meson-0.53.2"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_configure() {
 	local emesonargs=(
